@@ -9,7 +9,6 @@
  * @brief Función que realiza la conversión de un número bin a un número decimal
  * @param bin que es una cadena
  * @return num que corresponde a un entero
- * @ÚltimaModificación: 12 de noviembre de 2021
  */
     
 int conv_bin_decimal(char *bin){
@@ -27,7 +26,6 @@ int conv_bin_decimal(char *bin){
  * @brief Función que realiza la conversión de un número decimal a un número bin
  * @param num que corresponde a un entero
  * @return bin que es una cadena
- * @ÚltimaModificación: 12 de noviembre de 2021
  */
 char* conv_decimal_bin(int num){
     int t=0, i=0, j=0;
@@ -59,7 +57,6 @@ char* conv_decimal_bin(int num){
  * @brief Función que realiza la conversión de un número hexa a un número decimal
  * @param hexa que es una cadena
  * @return num que corresponde a un entero
- * @ÚltimaModificación: 12 de noviembre de 2021
  */
 int hexa_decimal(char *hexa){
 int num = 0, poww = 0;
@@ -130,7 +127,6 @@ int num = 0, poww = 0;
  * @brief Función que realiza la conversión de un número decimal a un número hexa
  * @param num que corresponde a un entero
  * @return hexa que es una cadena
- * @ÚltimaModificación: 14 de noviembre de 2021
  */
 char* decimal_hexa(int num){
 int t=0, i=0, j=0;
@@ -205,9 +201,10 @@ int t=0, i=0, j=0;
 /**
  * @brief Función que realiza la conversión de un número oct a un número decimal
  * @param oct que es una cadena
- * @return num que corresponde a un entero
- * @ÚltimaModificación: 19 de noviembre de 2021 
- */
+
+@return num que corresponde a un 
+*/
+
 int oct_decimal(char *oct){
 int num = 0, poww = 0;
     for(int i = strlen(oct)-1; i>=0; i--){
@@ -247,7 +244,6 @@ int num = 0, poww = 0;
  * @brief Fución que realiza la conversión de un número decimal a un número  oct
  * @param num que corresponde a un entero
  * @return oct que es una cadena
- * @ÚltimaModificación: 19 de noviembre de 2021 
  */
 char* decimal_oct(int num){
 int t=0, i=0, j=0;
@@ -302,7 +298,6 @@ int t=0, i=0, j=0;
  * @brief Función que realiza la conversión de un número bin a un número hexa
  * @param bin que es una cadena
  * @return hexa que es una cadena
- * @ÚltimaModificación: 23 de noviembre de 2021 
  */
 char* bin_hexa(char *bin){
 int num = 0, poww = 0;
@@ -320,8 +315,6 @@ int num = 0, poww = 0;
  * @brief Funciones que realizan la conversión de un número hexa a un número bin
  * @param hexa, num; donde hexa es una cadena y num corresponde a un entero
  * @return num,bin: donde num corresponde a un entero y bin es una cadena
- * @programador: Juárez Herrera Erick Adrián
- * @ÚltimaModificación: 4 de diciembre de 2021 
  */
 char* hexa_bin(char *hexa)
 {
@@ -358,8 +351,6 @@ int bin_oct2(int num)
  * @brief Funciones que realizan la conversión de un número oct a un numero bin
  * @param oct, num; donde oct es una cadena y num corresponde a un entero 
  * @return num, bin; donde num corresponde a un entero y bin es una cadena
- * @programador: Juárez Herrera Erick Adrián 
- * @ÚltimaModificación: 5 de diciembre de 2021 
  */
 char* oct_bin(char *oct)
 {
