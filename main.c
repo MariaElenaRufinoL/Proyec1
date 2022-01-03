@@ -10,16 +10,15 @@ int main(){
     //Portada
     printf("\tUniversidad Nacional Autonoma de Mexico (UNAM)\n");
     printf("\t\tFacultad de Ingenieria\n");
-    printf("\tProyecto 1 Conversion de numeros a distintas\n");
+    printf("\tProyecto 1 Conversion de numeros a distintas bases\n");
     printf("\t\tMateria: Fundamentos de programacion (1122)\n");
     printf("\t\tProfesor: Mercado Martinez Adrian Ulises\n");
+    printf("\t\tBloque: 135\n");
     printf("\t\tGrupo: 07\n");
     printf("\t\tBrigada 1\n");
     printf("\tIntegrantes:\n");
     printf("\t-Arellanes Conde Esteban.\n");
-    printf("\t*Numero de lista: 28.\n");
     printf("\t-Rufino López María Elena.\n");
-    printf("\t*Numero de lista: 46.\n");
     printf("\t-Soriano Barrera María Elena.\n");
     printf("\t-López López Axel Dion.\n");
     printf("\t\t\tSemestre 2022-1\n");
@@ -59,6 +58,7 @@ int main(){
     }while(elegir > 10 && elegir < 1);//Este ciclo previene que elegir tome valores incorrectos
         //Eleccion de conversion
         switch(elegir){
+                //Dependiendo de la eleccion se pide un numero y se llama a la funcion correspondiente a la conversion a realizar
         case 1:
             printf("Ingrese su numero en sistema Binario: \n");
             scanf("%s",&b);
@@ -168,7 +168,7 @@ int main(){
             return 0;
         break;
         default:
-            printf("ERROR.\n");
+            printf("Valor de variable elegir incorrecto.\n"); //Mensaje de error usado para pruebas, no deberia ser posible que salga dado al ciclo do-while en la eleccion de conversion, 
         break;
     }
     return 0;
