@@ -17,7 +17,7 @@ int conv_bin_decimal(char *bin){
     int num = 0, poww = 0;
     for(int i = strlen(bin)-1; i>=0; i--){//El contador de la funcion toma el valor de la longitud de la cadena, y va dismunuyendo
         if(bin[i]=='1') //Usando el contador se lee los caracteres de la cadena de forma inversa
-            num= num + pow(2, poww); //Si el caracter es 1 se le suma a num 2 a al numero del ciclo actual, iniciando en 0
+            num= num + pow(2, poww); //Si el caracter es 1 se le suma a num 2 elevado al numero del ciclo actual, iniciando en 0
         poww = poww + 1;//La potencia aumenta en 1 previo al final de cada ciclo
     }
     return num;//Se retorna la suma total siendo el equivalente del numero binario en decimal
@@ -147,7 +147,7 @@ int num = 0, poww = 0;
         switch(oct[i]){//Lee de 1 en 1 los caracteres de oct de forma inversa
                 //Se suma a num el valor del caracter multiplicado por 8 elevado a una potencia dada, que aumenta conforme se avanza en la cadena
             case '0':
-                num = 0;
+                num += 0;
                 break;
             case '1':
                 num += pow(8, poww);
@@ -181,16 +181,18 @@ int num = 0, poww = 0;
  * @brief Función que realiza la conversión de un número del sistema hexadecimal al sistema decimal
  * @param hexa que es una cadena
  * @return num que corresponde a un entero
+ * @programador: Soriano Barrera María Elena
+ * @ÚltimaModificación: 31 de diciembre de 2021
  */
 int hexa_decimal(char *hexa){
 int num = 0, poww = 0;
-    for(int i = strlen(hexa)-1; i>=0; i--){
-        switch(hexa[i]){//Lee 1 a 1 los elementos de la cadena y suma su equivalente en decimal a num
+    for(int i = strlen(hexa)-1; i>=0; i--){//El contador va de forma regresiva empezando en el numero de caracteres presentes en la cadena
+        switch(hexa[i]){//Apoyandose del contador se lee del ultimo al primero los caracteres en la cadena
             case '0':
-                num = 0;
+                num += 0;
                 break;
             case '1':
-                num += pow(16, poww);//El equivalente en decimal se multiplica por una potencia de 16 segun su posicion en la cadena
+                num += pow(16, poww);//Dependiendo del caracter leido se suma a num su equivalente en decimal multiplicado po 16 a la potencia actual
                 break;
             case '2':
                 num += 2*pow(16, poww);
@@ -240,8 +242,11 @@ int num = 0, poww = 0;
             case 'f':
                 num += 15*pow(16, poww);
                 break;
+            default: //Si se lee un caracter invalido se toma como 0 para evitar errores
+                num += 0
+                break;
         }        
-        poww = poww + 1; //La potencia aumenta con cada avanze en la cadena para dar el resultado correcto
+        poww += 1; //La potencia empieza en 0 y aumenta con cada ciclo
     }
     return num;
 }
@@ -251,6 +256,8 @@ int num = 0, poww = 0;
  * @brief Fución que realiza la conversión de un número del sistema decimal al sistema octal
  * @param num que corresponde a un entero
  * @return oct que es una cadena
+ * @programador: Soriano Barrera María Elena
+ * @ÚltimaModificación: 31 de diciembre de 2021
  */
 char* decimal_oct(int num){
 int t=0, i=0, j=0;
@@ -259,9 +266,9 @@ int t=0, i=0, j=0;
     strcpy(a, "");
 
     do{
-        t= num % 8;        
-        num = (int)(num/8);
-        switch(t){
+        t= num % 8;   //t es el modulo de num divido entre 8
+        num = (int)(num/8); //num se divide  entre 8 sin decimales y toma el valor obtenido
+        switch(t){//Se evalua a t, y concadena su valor como caracter
             case 0:
                 strcat(a, "0");
             case 1:
@@ -285,13 +292,12 @@ int t=0, i=0, j=0;
             case 7:
                 strcat(a, "7");  
                 break;
-            
         }        
-    }while(num>0);
+    }while(num>0);//Se repite el ciclo hasta que num sea 0
     
     oct = (char*)malloc(strlen(a)*sizeof(char));
-    for(i=strlen(a)-1, j=0; i >=0; i--, j++){
-        oct[j] = a[i];
+    for(i=strlen(a)-1, j=0; i >=0; i--, j++){//Se usan 2 contadores, uno regresivo que toma valor de la longitud de la cadena y otro progresivo que empieza en 0
+        oct[j] = a[i]; //Usando los contadores de apoyo se invierte la cadena
     }
     free(a);
     a = NULL;
@@ -305,15 +311,17 @@ int t=0, i=0, j=0;
  * @brief Función que realiza la conversión de un número del sistema binario al sistema hexadecimal
  * @param bin que es una cadena
  * @return hexa que es una cadena
+ * @programador: Rufino López María Elena:
+ * @ÚltimaModificación: 2 de enero de 2022
  */
 char* bin_hexa(char *bin){
-int num = 0, poww = 0;
-    for(int i = strlen(bin)-1; i>=0; i--){
-        if(bin[i]=='1') 
+int num = 0, poww = 0;//Se empieza convirtiendo la cadena en un numero del sistema decimal
+    for(int i = strlen(bin)-1; i>=0; i--){//El contador usado es regresivo, y toma valor de la longitud de la cadena
+        if(bin[i]=='1') //Se lee de forma inversa la cadena, si el caracter leiod es 1 se suma a num 2^poww
             num= num + pow(2, poww);
-        poww = poww + 1;
+        poww = poww + 1; //poww empieza en 0. y aumenta de valor al final de cada ciclo
     }
-    //Llamada a la función decimal_hexa() 
+    //Al final se convierte el valor decimal a hexadecimal usando llamando a la funcion correspondiente
     num= decimal_hexa(num);
 }
 
@@ -322,15 +330,17 @@ int num = 0, poww = 0;
  * @brief Funciones que realizan la conversión de un número del sistema hexadecimal al sistema binario
  * @param hexa, num; donde hexa es una cadena y num corresponde a un entero
  * @return num,bin: donde num corresponde a un entero y bin es una cadena
+ * @programador: Rufino López María Elena:
+ * @ÚltimaModificación: 2 de enero de 2022
  */
 char* hexa_bin(char *hexa)
 {
-    //Llamada a la función hexa_decimal()
+    //Se llama a la función hexa_decimal() pasando el valor de hexa 
     hexa_decimal(hexa);
 }
 int hexa_bin2(int num)
 {
-    //Llamada a la función conv_decimal_bin()
+    //Se llama a la funcion conv_decimal_bin() pasando el valor de num 
     conv_decimal_bin(num);
 }
 
@@ -339,17 +349,17 @@ int hexa_bin2(int num)
  * @brief Funciones que realizan la conversión de un número del sistema binario al sistema octal
  * @param bin, num; donde bin es una cadena y num corresponde a un entero 
  * @return num, oct; donde num corresponde a un entero y oct es una cadena
- * @programador: Juárez Herrera Erick Adrián 
- * @ÚltimaModificación: 5 de diciembre de 2021 
+ * @programador: Rufino López María Elena:
+ * @ÚltimaModificación: 2 de enero de 2022
  */
 char* bin_oct(char *bin)
 {
-    //Llamada a la función conv_bin_decimal()
+    //Se llama a la función conv_bin_decimal() pasando el valor de bin
     conv_bin_decimal(bin);
 }
 int bin_oct2(int num)
 {
-    //Llamada a la función decimal_oct
+    //Se llama a la función decimal_oct() pasando el valor de num
     decimal_oct(num);
 }
 
@@ -358,14 +368,16 @@ int bin_oct2(int num)
  * @brief Funciones que realizan la conversión de un número del sistema octal al sistema binario
  * @param oct, num; donde oct es una cadena y num corresponde a un entero 
  * @return num, bin; donde num corresponde a un entero y bin es una cadena
+ * @programador: Rufino López María Elena:
+ * @ÚltimaModificación: 2 de enero de 2022
  */
 char* oct_bin(char *oct)
 {
-    //Llamada a la función oct_decimal()
+    //Se llama a la función oct_decimal() pasando el valor de oct
     oct_decimal(oct);
 }
 int oct_bin2(int num)
 {
-    //Llamada a la función conv_decimal_bin()
+    //Se llama a la función conv_decimal_bin() pasando el valor de bin
     conv_decimal_bin(num);
 }
