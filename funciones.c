@@ -9,16 +9,18 @@
  * @brief Función que realiza la conversión de un número del sistema binario al sistema decimal
  * @param bin que es una cadena
  * @return num que corresponde a un entero
+ * @programador: Arellanes Conde Esteban
+ * @ÚltimaModificación: 30 de diciembre de 2021
  */
     
 int conv_bin_decimal(char *bin){
     int num = 0, poww = 0;
-    for(int i = strlen(bin)-1; i>=0; i--){
-        if(bin[i]=='1') 
-            num= num + pow(2, poww); //pow(base,potencia);
-        poww = poww + 1;
+    for(int i = strlen(bin)-1; i>=0; i--){//El contador de la funcion toma el valor de la longitud de la cadena, y va dismunuyendo
+        if(bin[i]=='1') //Usando el contador se lee los caracteres de la cadena de forma inversa
+            num= num + pow(2, poww); //Si el caracter es 1 se le suma a num 2 a al numero del ciclo actual, iniciando en 0
+        poww = poww + 1;//La potencia aumenta en 1 previo al final de cada ciclo
     }
-    return num;
+    return num;//Se retorna la suma total siendo el equivalente del numero binario en decimal
 }
 
 
@@ -26,6 +28,8 @@ int conv_bin_decimal(char *bin){
  * @brief Función que realiza la conversión de un número del sistema decimal al sistema binario
  * @param num que corresponde a un entero
  * @return bin que es una cadena
+ * @programador: Arellanes Conde Esteban
+ * @ÚltimaModificación: 30 de diciembre de 2021
  */
 char* conv_decimal_bin(int num){
     int t=0, i=0, j=0;
@@ -35,94 +39,22 @@ char* conv_decimal_bin(int num){
     strcpy(a, "");
 
     do{
-        t= num % 2;        
-        num = (int)(num /2);
-        if(t==1) strcat(a, "1");
+        t= num % 2;  //Se obtiene el modulo de num/2 asignandose a t   
+        num = (int)(num /2);//Se asigna a num el valor del cociente entero de num/2
+        if(t==1) strcat(a, "1");//Se concadena un 1 o 0 dependiendo del valor t
         else strcat(a, "0");        
-    }while(num!=1 && num!=0);
+    }while(num!=1 && num!=0);//Se detiene el ciclo cuando num vale 0 o 1
     
-    if(num== 1) strcat(a, "1");
+    if(num== 1) strcat(a, "1");//Si num vale 1 se concadena otra vez un 1 
 
     bin = (char*)malloc(strlen(a)*sizeof(char));
-    for(i=strlen(a)-1, j=0; i >=0; i--, j++){
+    for(i=strlen(a)-1, j=0; i >=0; i--, j++){//Invierte la cadena apoyandose un contador regresivo con valor de la longitud de a y uno progresivo que inicia en 0
         bin[j] = a[i];
     }
     free(a);
     a = NULL;
     return bin;
 }
-
-
-/**
- * @brief Función que realiza la conversión de un número del sistema hexadecimal al sistema decimal
- * @param hexa que es una cadena
- * @return num que corresponde a un entero
- */
-int hexa_decimal(char *hexa){
-int num = 0, poww = 0;
-    for(int i = strlen(hexa)-1; i>=0; i--){
-        switch(hexa[i]){//Lee 1 a 1 los elementos de la cadena y suma su equivalente en decimal a num
-            case '0':
-                num = 0;
-                break;
-            case '1':
-                num += pow(16, poww);//El equivalente en decimal se multiplica por una potencia de 16 segun su posicion en la cadena
-                break;
-            case '2':
-                num += 2*pow(16, poww);
-                break;
-            case '3':
-                num += 3*pow(16, poww);
-                break;
-            case '4':
-                num += 4*pow(16, poww);
-                break;
-            case '5':
-                num += 5*pow(16, poww);
-                break;
-            case '6':
-                num += 6*pow(16, poww);
-                break;
-            case '7':
-                num += 7*pow(16, poww);
-                break;
-            case '8':
-                num += 8*pow(16, poww);
-                break;
-            case '9':
-                num += 9*pow(16, poww);
-                break;
-            case 'A': 
-            case 'a':
-                num += 10*pow(16, poww);
-                break;
-            case 'B': 
-            case 'b':
-                num += 11*pow(16, poww);
-                break;
-            case 'C': 
-            case 'c':
-                num += 12*pow(16, poww);
-                break;
-            case 'D': 
-            case 'd':
-                num += 13*pow(16, poww);
-                break;
-            case 'E': 
-            case 'e':
-                num += 14*pow(16, poww);
-                break;
-            case 'F': 
-            case 'f':
-                num += 15*pow(16, poww);
-                break;
-        }        
-        poww = poww + 1; //La potencia aumenta con cada avanze en la cadena para dar el resultado correcto
-    }
-    return num;
-}
-
-
 /**
  * @brief Función que realiza la conversión del sistema decimal al sistema hexadecimal
  * @param num que corresponde a un entero
@@ -240,6 +172,76 @@ int num = 0, poww = 0;
                 break;
         }        
         poww = poww + 1; //Aumenta el valor de la potencia previamente usada
+    }
+    return num;
+}
+
+
+/**
+ * @brief Función que realiza la conversión de un número del sistema hexadecimal al sistema decimal
+ * @param hexa que es una cadena
+ * @return num que corresponde a un entero
+ */
+int hexa_decimal(char *hexa){
+int num = 0, poww = 0;
+    for(int i = strlen(hexa)-1; i>=0; i--){
+        switch(hexa[i]){//Lee 1 a 1 los elementos de la cadena y suma su equivalente en decimal a num
+            case '0':
+                num = 0;
+                break;
+            case '1':
+                num += pow(16, poww);//El equivalente en decimal se multiplica por una potencia de 16 segun su posicion en la cadena
+                break;
+            case '2':
+                num += 2*pow(16, poww);
+                break;
+            case '3':
+                num += 3*pow(16, poww);
+                break;
+            case '4':
+                num += 4*pow(16, poww);
+                break;
+            case '5':
+                num += 5*pow(16, poww);
+                break;
+            case '6':
+                num += 6*pow(16, poww);
+                break;
+            case '7':
+                num += 7*pow(16, poww);
+                break;
+            case '8':
+                num += 8*pow(16, poww);
+                break;
+            case '9':
+                num += 9*pow(16, poww);
+                break;
+            case 'A': 
+            case 'a':
+                num += 10*pow(16, poww);
+                break;
+            case 'B': 
+            case 'b':
+                num += 11*pow(16, poww);
+                break;
+            case 'C': 
+            case 'c':
+                num += 12*pow(16, poww);
+                break;
+            case 'D': 
+            case 'd':
+                num += 13*pow(16, poww);
+                break;
+            case 'E': 
+            case 'e':
+                num += 14*pow(16, poww);
+                break;
+            case 'F': 
+            case 'f':
+                num += 15*pow(16, poww);
+                break;
+        }        
+        poww = poww + 1; //La potencia aumenta con cada avanze en la cadena para dar el resultado correcto
     }
     return num;
 }
