@@ -39,17 +39,17 @@ int main(){
 
     //Menu de seleccion
     printf("Conversion de numeros entre sistemas numericos. \n");
-    printf("Elija una opcion: \n");
-    printf("1. Convertir de sistema Binario a Decimal.\n");
-    printf("2. Convertir de sistema Decimal a Binario.\n");
-    printf("3. Convertir de sistema Hexadecimal a Decimal.\n");
-    printf("4. Convertir de sistema Decimal a Hexadecimal.\n");
-    printf("5. Convertir de sistema Octal a Decimal.\n");
-    printf("6. Convertir de sistema Decimal a Octal.\n");
-    printf("7. Convertir de sistema Binario a Hexadecimal.\n");
-    printf("8. Convertir de sistema Hexadecimal a Binario.\n");
-    printf("9. Convertir de sistema Binario a Octal.\n");
-    printf("10. Convertir de sistema Octal a Binario.\n");
+    printf("Digite el numero que corresponda a su eleccion: \n");
+    printf("1-. Convertir de sistema Binario a Decimal.\n");
+    printf("2-. Convertir de sistema Decimal a Binario.\n");
+    printf("3-. Convertir de sistema Hexadecimal a Decimal.\n");
+    printf("4-. Convertir de sistema Decimal a Hexadecimal.\n");
+    printf("5-. Convertir de sistema Octal a Decimal.\n");
+    printf("6-. Convertir de sistema Decimal a Octal.\n");
+    printf("7-. Convertir de sistema Binario a Hexadecimal.\n");
+    printf("8-. Convertir de sistema Hexadecimal a Binario.\n");
+    printf("9-. Convertir de sistema Binario a Octal.\n");
+    printf("10-. Convertir de sistema Octal a Binario.\n");
     do{
         scanf("%d", &elegir);
         if(elegir > 10 && elegir < 1){
