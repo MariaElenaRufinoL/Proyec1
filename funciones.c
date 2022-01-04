@@ -121,6 +121,9 @@ int t=0, i=0, j=0;
             case 15:
                 strcat(a, "F");
                 break;
+            default: //Si se lee un caracter invalido se toma como 0 para evitar errores
+                num += 0
+                break;
         }        
     }while(num > 0);
     hexa = (char*)malloc(strlen(a)*sizeof(char));
@@ -169,6 +172,9 @@ int num = 0, poww = 0;
                 break;
             case '7':
                 num += 7*pow(8, poww);
+                break;
+            default: //Si se lee un caracter invalido se toma como 0 para evitar errores
+                num += 0
                 break;
         }        
         poww = poww + 1; //Aumenta el valor de la potencia previamente usada
@@ -291,6 +297,9 @@ int t=0, i=0, j=0;
                 break;
             case 7:
                 strcat(a, "7");  
+                break;
+            default: //Este default en teoria es innecesario, pero lo incluimos como medida precautoria
+                strcat(a, "0");
                 break;
         }        
     }while(num>0);//Se repite el ciclo hasta que num sea 0
