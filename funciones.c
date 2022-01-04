@@ -191,11 +191,11 @@ int t=0, i=0, j=0;
                 break;
         }        
     }while(num > 0);
-    hexa = (char*)malloc(strlen(a)*sizeof(char));//Reserva memoria
+    hexa = (char*)malloc(strlen(a)*sizeof(char));
     for(i=strlen(a)-1, j=0; i >=0; i--, j++){//Se le asigna i la longitud de la cadena a, en cada repeticion el valor de este disminuye y el de j aumenta
         hexa[j] = a[i];  //Usando los contadores i y j se transcribe la cadena a en hexa de forma inversa
     }
-    free(a); //Libera memoria
+    free(a); 
     a = NULL;
     return hexa;
 }  
@@ -205,12 +205,15 @@ int t=0, i=0, j=0;
  * @brief Función que realiza la conversión de un número del sistema octal al sistema decimal
  * @param oct que es una cadena
  * @return num que corresponde a un entero
+ * @programador: López López Axel Dion
+ * @ÚltimaModificación: 2 de enero de 2022
 */
 
 int oct_decimal(char *oct){
 int num = 0, poww = 0;
-    for(int i = strlen(oct)-1; i>=0; i--){
-        switch(oct[i]){
+    for(int i = strlen(oct)-1; i>=0; i--){//Se asigna a i un valor equivalente a la longitud de oct, y se usa como contador de forma regresiva
+        switch(oct[i]){//Lee de 1 en 1 los caracteres de oct de forma inversa
+                //Se suma a num el valor del caracter multiplicado por 8 elevado a una potencia dada, que aumenta conforme se avanza en la cadena
             case '0':
                 num = 0;
                 break;
@@ -236,7 +239,7 @@ int num = 0, poww = 0;
                 num += 7*pow(8, poww);
                 break;
         }        
-        poww = poww + 1; //Para que vaya aumentando la powwencia
+        poww = poww + 1; //Aumenta el valor de la potencia previamente usada
     }
     return num;
 }
