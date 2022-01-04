@@ -56,6 +56,8 @@ int main(){
             printf("Eleccion invalida, digite un numero entre 1 y 10.\n");
         }
     }while(elegir > 10 && elegir < 1);//Este ciclo previene que elegir tome valores incorrectos
+    printf("Nota: Los caracteres que no correspondan al sistema que eligio\n");
+    printf("seran tomados como ceros a fin de evitar errores.\n");
         //Eleccion de conversion
         switch(elegir){
                 //Dependiendo de la eleccion se pide un numero y se llama a la funcion correspondiente a la conversion a realizar
@@ -80,7 +82,6 @@ int main(){
 
         case 3:
             printf("Ingrese su numero en sistema Hexadecimal: \n");
-            printf("Nota: Los caracteres que no sean numeros o letras de A a F seran tomados como un 0\n");
             scanf("%s",&h);
             num = hexa_decimal(h);
             printf("Conversion a sistema Decimal: %d\n", num);
@@ -128,7 +129,6 @@ int main(){
         case 8:
             fflush(stdin);
             printf("Ingrese su numero en sistema Hexadecimal:\n");
-            printf("Nota: Los caracteres que no sean numeros o letras de A a F seran tomados como un 0\n");
             scanf("%s",&h);
             hexa = h;
             hexa = hexa_bin(hexa);
