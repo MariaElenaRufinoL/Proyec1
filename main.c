@@ -80,6 +80,7 @@ int main(){
 
         case 3:
             printf("Ingrese su numero en sistema Hexadecimal: \n");
+            printf("Nota: Los caracteres que no sean numeros o letras de A a F seran tomados como un 0\n");
             scanf("%s",&h);
             num = hexa_decimal(h);
             printf("Conversion a sistema Decimal: %d\n", num);
@@ -127,6 +128,7 @@ int main(){
         case 8:
             fflush(stdin);
             printf("Ingrese su numero en sistema Hexadecimal:\n");
+            printf("Nota: Los caracteres que no sean numeros o letras de A a F seran tomados como un 0\n");
             scanf("%s",&h);
             hexa = h;
             hexa = hexa_bin(hexa);
