@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdlib.h> 
 
-//---------------------------FUNCIONES CON SISTEMA DECIMAL------------------------------------
+//___________________________________FUNCIONES CON SISTEMA DECIMAL______________________________
 /**
  * @brief Función que realiza la conversión de un número del sistema binario al sistema decimal
  * @param bin que es una cadena
@@ -294,7 +294,7 @@ int t=0, i=0, j=0;
 }
 
 
-//____________________________FUNCIONES PREVIAMENTE PROGRAMADAS PROGRAMADAS_________________________
+//____________________________FUNCIONES CON SISTEMA BINARIO_________________________
 
 /**
  * @brief Función que realiza la conversión de un número del sistema binario al sistema hexadecimal
@@ -312,7 +312,7 @@ int num = 0, poww = 0;
     num= decimal_hexa(num);
 }
 
-
+//Funciones de referencia: Su unica funcion es llamar a otra funcion equivalente con un nombre distinto, evitando confusiones al programas¿r
 /**
  * @brief Funciones que realizan la conversión de un número del sistema hexadecimal al sistema binario
  * @param hexa, num; donde hexa es una cadena y num corresponde a un entero
