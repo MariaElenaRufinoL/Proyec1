@@ -127,6 +127,8 @@ int num = 0, poww = 0;
  * @brief Función que realiza la conversión de un número decimal a un número hexa
  * @param num que corresponde a un entero
  * @return hexa que es una cadena
+ * @programador: López López Axel Dion
+ * @ÚltimaModificación: 2 de enero de 2022
  */
 char* decimal_hexa(int num){
 int t=0, i=0, j=0;
@@ -135,9 +137,10 @@ int t=0, i=0, j=0;
     strcpy(a, "");
 
     do{
-        t= num % 16;        
-        num = (int)(num/16);
+        t= num % 16;   //t es el modulo del valor actual de num entre 16     
+        num = (int)(num/16); // num se divide entre 16 con cociente entero y se el asigna como nuevo valor
         switch(t){
+                //En base al valor de t se concadena su equivalente en sistema hexadecimal a la cadena a
             case 0:
                 strcat(a, "0");
                 break;
@@ -189,10 +192,10 @@ int t=0, i=0, j=0;
         }        
     }while(num > 0);
     hexa = (char*)malloc(strlen(a)*sizeof(char));//Reserva memoria
-    for(i=strlen(a)-1, j=0; i >=0; i--, j++){
-        hexa[j] = a[i];    
+    for(i=strlen(a)-1, j=0; i >=0; i--, j++){//Se le asigna i la longitud de la cadena a, en cada repeticion el valor de este disminuye y el de j aumenta
+        hexa[j] = a[i];  //Usando los contadores i y j se transcribe la cadena a en hexa de forma inversa
     }
-    free(a);
+    free(a); //Libera memoria
     a = NULL;
     return hexa;
 }  
