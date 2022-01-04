@@ -6,9 +6,9 @@
 //__________________FUNCIONES CON SISTEMA DECIMAL__________________
 int conv_bin_decimal(char *bin);
 char* conv_decimal_bin(int num);
-int hexa_decimal(char *hexa);
 char* decimal_hexa(int num);
 int oct_decimal(char *oct);
+int hexa_decimal(char *hexa);
 char* decimal_oct(int num);
 //___________________FUNCIONES CON SISTEMA BINARIO__________________
 char* bin_hexa(char *bin);
