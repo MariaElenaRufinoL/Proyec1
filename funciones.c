@@ -4,9 +4,9 @@
 #include <math.h>
 #include <stdlib.h> 
 
-//Funciones con sistema decimal
+//---------------------------FUNCIONES CON SISTEMA DECIMAL------------------------------------
 /**
- * @brief Función que realiza la conversión de un número bin a un número decimal
+ * @brief Función que realiza la conversión de un número del sistema binario al sistema decimal
  * @param bin que es una cadena
  * @return num que corresponde a un entero
  */
@@ -23,7 +23,7 @@ int conv_bin_decimal(char *bin){
 
 
 /**
- * @brief Función que realiza la conversión de un número decimal a un número bin
+ * @brief Función que realiza la conversión de un número del sistema decimal al sistema binario
  * @param num que corresponde a un entero
  * @return bin que es una cadena
  */
@@ -54,7 +54,7 @@ char* conv_decimal_bin(int num){
 
 
 /**
- * @brief Función que realiza la conversión de un número hexa a un número decimal
+ * @brief Función que realiza la conversión de un número del sistema hexadecimal al sistema decimal
  * @param hexa que es una cadena
  * @return num que corresponde a un entero
  */
@@ -124,7 +124,7 @@ int num = 0, poww = 0;
 
 
 /**
- * @brief Función que realiza la conversión de un número decimal a un número hexa
+ * @brief Función que realiza la conversión del sistema decimal al sistema hexadecimal
  * @param num que corresponde a un entero
  * @return hexa que es una cadena
  * @programador: López López Axel Dion
@@ -202,10 +202,9 @@ int t=0, i=0, j=0;
 
 
 /**
- * @brief Función que realiza la conversión de un número oct a un número decimal
+ * @brief Función que realiza la conversión de un número del sistema octal al sistema decimal
  * @param oct que es una cadena
-
-@return num que corresponde a un 
+ * @return num que corresponde a un entero
 */
 
 int oct_decimal(char *oct){
@@ -244,7 +243,7 @@ int num = 0, poww = 0;
 
 
 /**
- * @brief Fución que realiza la conversión de un número decimal a un número  oct
+ * @brief Fución que realiza la conversión de un número del sistema decimal al sistema octal
  * @param num que corresponde a un entero
  * @return oct que es una cadena
  */
@@ -295,10 +294,10 @@ int t=0, i=0, j=0;
 }
 
 
-//--------------------FUNCIONES QUE HACEN USO DE LAS ANTERIORMENTE PROGRAMADAS---------------------
+//____________________________FUNCIONES PREVIAMENTE PROGRAMADAS PROGRAMADAS_________________________
 
 /**
- * @brief Función que realiza la conversión de un número bin a un número hexa
+ * @brief Función que realiza la conversión de un número del sistema binario al sistema hexadecimal
  * @param bin que es una cadena
  * @return hexa que es una cadena
  */
@@ -315,7 +314,7 @@ int num = 0, poww = 0;
 
 
 /**
- * @brief Funciones que realizan la conversión de un número hexa a un número bin
+ * @brief Funciones que realizan la conversión de un número del sistema hexadecimal al sistema binario
  * @param hexa, num; donde hexa es una cadena y num corresponde a un entero
  * @return num,bin: donde num corresponde a un entero y bin es una cadena
  */
@@ -332,7 +331,7 @@ int hexa_bin2(int num)
 
 
 /**
- * @brief Funciones que realizan la conversión de un número bin a un número oct
+ * @brief Funciones que realizan la conversión de un número del sistema binario al sistema octal
  * @param bin, num; donde bin es una cadena y num corresponde a un entero 
  * @return num, oct; donde num corresponde a un entero y oct es una cadena
  * @programador: Juárez Herrera Erick Adrián 
@@ -351,7 +350,7 @@ int bin_oct2(int num)
 
 
 /**
- * @brief Funciones que realizan la conversión de un número oct a un numero bin
+ * @brief Funciones que realizan la conversión de un número del sistema octal al sistema binario
  * @param oct, num; donde oct es una cadena y num corresponde a un entero 
  * @return num, bin; donde num corresponde a un entero y bin es una cadena
  */
