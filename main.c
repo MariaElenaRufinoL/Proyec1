@@ -123,6 +123,7 @@ int main(){
             hexa = NULL;
             return 0; 
         break;
+                //En los siguientes casos se la conversion se realiza en 2 pasos, de el sistema original a deci al, y de decimal al sistema final
         case 8:
             fflush(stdin);
             printf("Ingrese su numero en sistema Hexadecimal:\n");
